@@ -1,71 +1,75 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import Hidden from "@material-ui/core/Hidden";
-import withStyles from "@material-ui/styles/withStyles";
+import Grid from "@material-ui/core/Grid";
+import twitter from "./../images/utils/twitter.png";
+import github from "./../images/utils/github.png";
+import { makeStyles, StylesProvider } from "@material-ui/styles";
 
-const styles = theme => ({
-  divider: {
-    marginTop: theme.spacing.unit * 6,
-    marginBottom: theme.spacing.unit * 3
+const useStyles = makeStyles({
+  footerContainer: {
+    width: "100%",
+    backgroundColor: "rgb(247, 247, 247)",
+    padding: "10px 20px"
   },
-  footer: {
-    marginBottom: theme.spacing.unit * 3,
-    whiteSpace: "nowrap"
+  footerWrapper: {
+    width: "100%",
+    margin: "0 auto"
+  },
+  footerTitle: {
+    ["@media (max-width:480px)"]: {
+      fontSize: "10px"
+    },
+    ["@media (min-width:481px)"]: {
+      fontSize: "12px"
+    }
+  },
+  socialOptionContainer: {
+    color: "white",
+    textDecoration: "none",
+
+    "&:first-child": {
+      marginRight: "20px"
+    }
+  },
+  socialOptionImage: {
+    maxWidth: "20px"
   }
 });
 
-const Footer = withStyles(styles)(props => {
-  const {
-    classes,
-    data: {
-      site: {
-        siteMetadata: {
-          title,
-          contact: { email }
-        }
-      }
-    }
-  } = props;
-  return (
-    <>
-      <Divider className={classes.divider} />
-      <footer className={classes.footer} id="footer">
-        <span>
-          <Typography variant="caption" component="span">
-            ©{new Date().getFullYear()} {title}{" "}
-            <Hidden only={["xs", "sm"]}>–</Hidden>
-            <Hidden only={["xl", "lg", "md"]}>
-              <br />
-            </Hidden>{" "}
-            {email}
-            <br />
-            &middot;
-            <br />
-            Starter created by{" "}
-            <a href="https://foxandgeese.com">Fox and Geese</a>
-          </Typography>
-        </span>
-      </footer>
-    </>
-  );
-});
+const Footer = () => {
+  const classes = useStyles();
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            contact {
-              email
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Footer data={data} />}
-  />
-);
+  return (
+    <Grid className={classes.footerContainer}>
+      <Grid
+        container
+        justify="space-between"
+        className={classes.footerWrapper}
+        alignItems="center"
+      >
+        <Grid item>
+          <p className={classes.footerTitle}>
+            @2019 tech-bulb.com. All rights reserved.
+          </p>
+        </Grid>
+
+        <Grid item>
+          <a
+            href="https://twitter.com/s_radosz"
+            target="_blank"
+            className={classes.socialOptionContainer}
+          >
+            <img className={classes.socialOptionImage} src={twitter} />
+          </a>
+          <a
+            href="https://github.com/s-radosz"
+            target="_blank"
+            className={classes.socialOption}
+          >
+            <img className={classes.socialOptionImage} src={github} />
+          </a>
+        </Grid>
+      </Grid>
+    </Grid>
+  );
+};
+export default Footer;

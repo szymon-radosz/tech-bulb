@@ -1,50 +1,74 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
-import Menu from "./Menu";
-import MenuMobile from "./MenuMobile";
-import Hidden from "@material-ui/core/Hidden";
 import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
-import Typography from "@material-ui/core/Typography";
 import logo from "./../images/utils/tech-bulb-logo.svg";
+import { makeStyles } from "@material-ui/styles";
 
-const Header = props => {
+const useStyles = makeStyles({
+  navbar: {
+    backgroundColor: "#fff !important",
+    boxShadow: "rgb(194, 194, 194) 0px 1px 8px -5px",
+    MozBoxShadow: "rgb(194, 194, 194) 0px 1px 8px -5px",
+    WebkitBoxShadow: "rgb(194, 194, 194) 0px 1px 8px -5px"
+  },
+  logoContainer: {
+    color: "white",
+    textDecoration: "none"
+  },
+  logoContainerImage: {
+    ["@media (max-width:480px)"]: {
+      maxWidth: "140px"
+    },
+    ["@media (min-width:481px) and (max-width:767px)"]: {
+      maxWidth: "160px"
+    },
+    ["@media (min-width:768px)"]: {
+      maxWidth: "170px"
+    }
+  },
+  pageOptionContainer: {
+    color: "white",
+    textDecoration: "none"
+  },
+  pageOptionText: {
+    color: "#333",
+    fontWeight: "300",
+    ["@media (max-width:480px)"]: {
+      fontSize: "14px",
+      marginLeft: "15px"
+    },
+    ["@media (min-width:481px) and (max-width:767px)"]: {
+      fontSize: "14px",
+      marginLeft: "15px"
+    },
+    ["@media (min-width:768px)"]: {
+      fontSize: "16px",
+      marginLeft: "25px"
+    }
+  }
+});
+
+const Header = () => {
+  const classes = useStyles();
+
   return (
-    <AppBar id="appBar">
+    <AppBar id="appBar" className={classes.navbar}>
       <Toolbar>
-        <Grid
-          container
-          justify="space-between"
-          alignItems="center"
-          spacing={16}
-        >
+        <Grid container justify="space-between" alignItems="center">
           <Grid item>
-            <Link
-              to="/"
-              style={{
-                color: "white",
-                textDecoration: "none"
-              }}
-            >
-              <img
-                style={{
-                  maxWidth: "170px"
-                }}
-                src={logo}
-              />
-            </Link>
+            <Grid container alignItems="center">
+              <Link to="/" className={classes.logoContainer}>
+                <img className={classes.logoContainerImage} src={logo} />
+              </Link>
+            </Grid>
           </Grid>
           <Grid item>
-            <Hidden smDown>
-              <Typography component="span" variant="caption">
-                <Menu />
-              </Typography>
-            </Hidden>
-            <Hidden mdUp>
-              <MenuMobile />
-            </Hidden>
+            <Link to="/blog" className={classes.pageOptionContainer}>
+              <p className={classes.pageOptionText}>Blog</p>
+            </Link>
           </Grid>
         </Grid>
         <Grid item />

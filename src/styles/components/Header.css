@@ -1,0 +1,6 @@
+#appBar {
+  background-color: "#fff";
+  box-shadow: "rgb(194, 194, 194) 0px 1px 8px -5px";
+  -moz-box-shadow: "rgb(194, 194, 194) 0px 1px 8px -5px";
+  -webkit-box-shadow: "rgb(194, 194, 194) 0px 1px 8px -5px";
+}

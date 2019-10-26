@@ -12,24 +12,33 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
     "@material-ui/core": "^3.9.3",
     "@material-ui/styles": "^3.0.0-alpha.10",
     "gatsby": "^2.3.6",
+    "gatsby-image": "^2.2.23",
     "gatsby-plugin-catch-links": "^1.0.26",
     "gatsby-plugin-react-helmet": "^3.0.11",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-sharp": "^2.2.27",
     "gatsby-plugin-stylus": "^2.0.7",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-images": "^3.1.25",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.2.19",
     "gh-pages": "^2.0.1",
     "jss": "^9.8.7",
     "mdi-material-ui": "^5.10.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-jss": "^8.6.1",
+    "react-slick": "^0.25.2",
     "react-swipeable-views": "^0.13.1",
-    "react-swipeable-views-utils": "^0.13.1"
+    "react-swipeable-views-utils": "^0.13.1",
+    "slick-carousel": "^1.8.1"
   }
 }

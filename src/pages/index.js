@@ -1,14 +1,46 @@
 import React from "react";
-import Link from "gatsby-link";
-import Layout from "./../components/layout";
+import Layout from "./../components/Layout";
+import MainSection from "./../components/MainPage/MainSection";
+import BlogSection from "./../components/MainPage/BlogSection";
+import AboutSection from "./../components/MainPage/AboutSection";
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <div>
-      <h1>Welcome to my website</h1>
-      <p>This is a sample site for the Gatsby crash course</p>
-    </div>
+    <MainSection />
+    <BlogSection data={data.allMarkdownRemark.edges} />
+    <AboutSection />
   </Layout>
 );
+
+export const pageQuery = graphql`
+  query BlogPostsIndex {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            path
+            title
+            date
+            author
+            tags {
+              key
+              value
+              identifier
+            }
+            postDir
+            image {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

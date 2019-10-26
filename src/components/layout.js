@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import favicon from "./../images/utils/favicon.ico";
 import { StaticQuery, graphql } from "gatsby";
-
+import Grid from "@material-ui/core/Grid";
 import Header from "../components/header";
-import Menu from "../components/menu";
-//import "./index.css";
+import Footer from "./Footer";
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={detailsQuery}
     render={data => {
@@ -39,18 +38,18 @@ export default ({ children }) => (
             />
           </Helmet>
 
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <Menu />
-          <div
-            style={{
-              margin: "0 auto",
-              maxWidth: 960,
-              padding: "0px 1.0875rem 1.45rem",
-              paddingTop: 0
-            }}
-          >
-            {children}
-          </div>
+          <Grid container style={{ fontFamily: "Open Sans, sans-serif" }}>
+            <Header siteTitle={data.site.siteMetadata.title} />
+            <div
+              style={{
+                margin: "0 auto",
+                width: "100%"
+              }}
+            >
+              {children}
+            </div>
+            <Footer />
+          </Grid>
         </div>
       );
     }}
@@ -66,3 +65,5 @@ export const detailsQuery = graphql`
     }
   }
 `;
+
+export default Layout;
