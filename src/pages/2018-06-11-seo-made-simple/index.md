@@ -5,7 +5,7 @@ title: "SEO made simple: guide to SEO"
 author: "Szymon Radosz"
 tags: [{ key: "seo", value: "SEO", identifier: 5 }]
 postDir: "2018-06-11-seo-made-simple"
-image: ./PostImg.jpg
+image: ./PostImg1.jpg
 ---
 
 <div class="blog-post__container">

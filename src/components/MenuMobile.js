@@ -15,7 +15,7 @@ const styles = {
 
 class MenuMobile extends React.Component {
   state = {
-    anchorEl: null,
+    anchorEl: null
   };
 
   handleOpen = event => {
@@ -32,9 +32,7 @@ class MenuMobile extends React.Component {
       classes,
       data: {
         site: {
-          siteMetadata: {
-            menuLinks
-          }
+          siteMetadata: { menuLinks }
         }
       }
     } = this.props;
@@ -50,7 +48,7 @@ class MenuMobile extends React.Component {
             onClose={this.handleClose}
           >
             {menuLinks.map(link => (
-              <Link key={link.name} to={link.link}>
+              <Link key={`menu-link-${i}`} to={link.link}>
                 <MenuItem>{link.name}</MenuItem>
               </Link>
             ))}

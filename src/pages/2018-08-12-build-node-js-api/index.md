@@ -9,7 +9,7 @@ tags:
     { key: "node", value: "Node.js", identifier: 2 },
   ]
 postDir: "2018-08-12-build-node-js-api"
-image: ./PostImg.jpg
+image: ./PostImg1.jpg
 ---
 
 <div class="blog-post__container">

@@ -10,7 +10,7 @@ tags:
     { key: "node", value: "Node.js", identifier: 2 },
   ]
 postDir: "2018-11-17-build-web-scrapping-app-with-node-js-and-react-js"
-image: ./PostImg.jpg
+image: ./PostImg1.jpg
 ---
 
 <div class="blog-post__container">

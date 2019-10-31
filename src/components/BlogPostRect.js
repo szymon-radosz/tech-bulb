@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     margin: "0",
     color: "#333",
     fontWeight: "600",
-    minHeight: "39px",
+    minHeight: "58px",
     MozBoxTransition: "all 0.3s ease-in-out",
     WebkitBoxShadow: "all 0.3s ease-in-out",
     transition: "all 0.3s ease-in-out",
@@ -69,7 +69,11 @@ const BlogPostRect = ({ title, date, tags, image, path }) => {
           {tags &&
             tags.length > 0 &&
             tags.map((tag, i) => {
-              return <p className={classes.singleTag}>{tag.value}</p>;
+              return (
+                <p key={`tag-rect-${i}`} className={classes.singleTag}>
+                  {tag.value}
+                </p>
+              );
             })}
         </div>
       </div>

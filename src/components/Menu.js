@@ -22,7 +22,7 @@ const Menu = () => (
           >
             {data.site.siteMetadata.menuLinks.map((element, i) => {
               return (
-                <li>
+                <li key={`menu-link-${i}`}>
                   <Link to={element.link}>{element.name}</Link>
                 </li>
               );

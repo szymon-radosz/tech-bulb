@@ -5,7 +5,7 @@ title: "Laravel – share method between controllers"
 author: "Szymon Radosz"
 tags: [{ key: "laravel", value: "Laravel", identifier: 3 }]
 postDir: "2019-07-28-laravel-share-method-between-classes-controllers"
-image: ./PostImg.jpg
+image: ./PostImg1.jpg
 ---
 
 <div class="blog-post__container">

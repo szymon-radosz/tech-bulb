@@ -8,21 +8,23 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   mainContainer: {
-    padding: "45px 0",
     ["@media (max-width:480px)"]: {
       width: "100%",
       margin: "0 auto",
       "& button": {
         display: "none !important"
-      }
+      },
+      padding: "45px 0 0 0"
     },
     ["@media (min-width:481px) and (max-width:767px)"]: {
       width: "90%",
-      margin: "0 auto"
+      margin: "0 auto",
+      padding: "45px 0"
     },
     ["@media (min-width:768px)"]: {
       width: "95%",
-      margin: "0 auto"
+      margin: "0 auto",
+      padding: "45px 0"
     }
   }
 });
@@ -65,7 +67,7 @@ const BlogPostsCarousel = ({ blogPostsList }) => {
         blogPostsList.map((post, i) => {
           return (
             <BlogPostRect
-              key={i}
+              key={`blog-post-${i}`}
               title={post.node.frontmatter.title}
               date={post.node.frontmatter.date}
               tags={post.node.frontmatter.tags}

@@ -11,7 +11,7 @@ const BlogPage = ({ data }) => (
         (post, i) => {
           return (
             <SingleBlogRect
-              key={post.node.id}
+              key={`single-blog-rect-${i}`}
               title={post.node.frontmatter.title}
               date={post.node.frontmatter.date}
               tags={post.node.frontmatter.tags}

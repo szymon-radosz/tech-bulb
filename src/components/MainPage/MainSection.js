@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 import meImg from "./../../images/utils/me.svg";
+import clap from "./../../images/utils/clap.png";
 import { sign } from "crypto";
 
 const useStyles = makeStyles({
@@ -82,6 +83,7 @@ const useStyles = makeStyles({
     }
   },
   meImageContainer: {
+    position: "relative",
     ["@media (max-width:480px)"]: {
       maxWidth: "250px",
       width: "75vw",
@@ -105,11 +107,63 @@ const useStyles = makeStyles({
     ["@media (min-width:768px)"]: {
       marginTop: "50px"
     }
+  },
+  clapImg: {
+    position: "absolute",
+    ["@media (max-width:480px)"]: {
+      width: "14%",
+      top: "46%"
+    },
+    ["@media (min-width:481px) and (max-width:767px)"]: {
+      width: "14%",
+      top: "32%"
+    },
+    ["@media (min-width:768px)"]: {
+      width: "14%",
+      top: "42%"
+    }
+  },
+  hiddenRect: {
+    cursor: "grab",
+    position: "absolute",
+    ["@media (max-width:480px)"]: {
+      width: "70px",
+      height: "70px",
+      left: 0,
+      top: "45%"
+    },
+    ["@media (min-width:481px) and (max-width:767px)"]: {
+      width: "70px",
+      height: "70px",
+      left: 0,
+      top: "27%"
+    },
+    ["@media (min-width:768px)"]: {
+      width: "100px",
+      height: "100px",
+      left: 0,
+      top: "40%"
+    }
   }
 });
 
 const MainSection = () => {
   const classes = useStyles();
+
+  const [showClap, setShowClap] = useState(false);
+  const [countClaps, setCountClaps] = useState(0);
+
+  const showClapElements = () => {
+    //setShowClap(true);
+    //alert("test");
+
+    setShowClap(true);
+    setCountClaps(countClaps + 1);
+
+    setTimeout(() => {
+      setShowClap(false);
+    }, 700);
+  };
 
   return (
     <Grid
@@ -125,10 +179,19 @@ const MainSection = () => {
           based on Warsaw, Poland.
         </h2>
         <p className={classes.mainContainerParagraph}>
-          Give me high five and continue.
+          {countClaps === 0 && `Give me high five and continue.`}
+          {countClaps === 1 && `Thank you mate.`}
+          {countClaps > 1 && countClaps < 5 && `I really need that hand.`}
+          {countClaps >= 5 && `I think I almost lost my hand.`}
         </p>
       </Grid>
       <Grid item className={classes.meImageContainer}>
+        {showClap && <img src={clap} className={classes.clapImg} />}
+        <div
+          className={classes.hiddenRect}
+          onClick={() => showClapElements()}
+        ></div>
+
         <img src={meImg} className={classes.meImage} />
       </Grid>
     </Grid>

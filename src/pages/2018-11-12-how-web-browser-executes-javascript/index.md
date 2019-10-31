@@ -5,7 +5,7 @@ title: "How Web browser executes Javascript?"
 author: "Szymon Radosz"
 tags: [{ key: "javascript", value: "Javascript", identifier: 0 }]
 postDir: "2018-11-12-how-web-browser-executes-javascript"
-image: ./PostImg.jpg
+image: ./PostImg1.jpg
 ---
 
 <div class="blog-post__container">
