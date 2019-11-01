@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 
 const Menu = () => (
   <StaticQuery
-    query={detailsQuery}
+    query={detailsMenuQuery}
     render={data => {
       return (
         <div
@@ -36,7 +36,7 @@ const Menu = () => (
 
 export default Menu;
 
-export const detailsQuery = graphql`
+export const detailsMenuQuery = graphql`
   query menuQuery {
     site {
       siteMetadata {
