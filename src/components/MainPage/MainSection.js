@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 import meImg from "./../../images/utils/me.svg";
 import clap from "./../../images/utils/clap.png";
-import { sign } from "crypto";
 
 const useStyles = makeStyles({
   mainContainer: {

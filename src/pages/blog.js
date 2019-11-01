@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "gatsby-link";
 import Layout from "./../components/Layout";
 import SingleBlogRect from "./../components/BlogPage/SingleBlogRect";
+import { graphql } from "gatsby";
 
 const BlogPage = ({ data }) => (
   <Layout>

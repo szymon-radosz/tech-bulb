@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import BlogPostRect from "./BlogPostRect";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({

@@ -3,6 +3,7 @@ import Layout from "./../components/Layout";
 import MainSection from "./../components/MainPage/MainSection";
 import BlogSection from "./../components/MainPage/BlogSection";
 import AboutSection from "./../components/MainPage/AboutSection";
+import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => (
   <Layout>

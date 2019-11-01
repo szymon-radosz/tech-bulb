@@ -56,6 +56,7 @@ const Footer = () => {
           <a
             href="https://twitter.com/s_radosz"
             target="_blank"
+            rel="noopener noreferrer"
             className={classes.socialOptionContainer}
           >
             <img className={classes.socialOptionImage} src={twitter} />
@@ -63,6 +64,7 @@ const Footer = () => {
           <a
             href="https://github.com/s-radosz"
             target="_blank"
+            rel="noopener noreferrer"
             className={classes.socialOption}
           >
             <img className={classes.socialOptionImage} src={github} />
